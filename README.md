@@ -1,1 +1,0 @@
-# IR_Search_Engine_Project
