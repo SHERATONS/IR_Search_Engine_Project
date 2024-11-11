@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 60%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #1e1e1e;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.logo {
+    background: url("../images/Spotify_logo.png") no-repeat;
+    background-size: contain; 
+    width: 120px; 
+    height: 40px; 
+    display: inline-block; 
+}
+.ranking {
+    background-color: #444;
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+.content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.album-art {
+    width: 120px;
+    height: 120px;
+    background-color: #333;
+    border-radius: 10px;
+}
+.info {
+    flex-grow: 1;
+}
+.info h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.info p {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin: 5px 0;
+}
+.info .button {
+    padding: 8px 16px;
+    color: #121212;
+    background-color: #1DB954;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+.description, .lyrics {
+    margin-top: 20px;
+}
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+.description p, .lyrics p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #b3b3b3;
+}
