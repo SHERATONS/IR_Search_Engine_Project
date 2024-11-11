@@ -822,6 +822,7 @@ legend {
   background-size: cover;
   padding: 15px;
   font-family: 'Roboto', sans-serif;
+  background-position: center;
 }
 
 .s008 form {
@@ -847,7 +848,7 @@ legend {
   padding: 10px 32px 10px 70px;
   font-size: 18px;
   color: #666;
-  border-radius: 3px;
+  border-radius: 5px;
   height: 70px;
   color: #555;
 }
@@ -897,7 +898,7 @@ legend {
   padding: 0 15px;
   background: transparent;
   white-space: nowrap;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 14px;
   color: #fff;
   transition: all .2s ease-out, color .2s ease-out;
@@ -931,7 +932,7 @@ legend {
   display: flex;
   -ms-flex-align: center;
       align-items: center;
-  width: 60px;
+  width: 100px;
   height: 100%;
 }
 
@@ -944,7 +945,7 @@ legend {
 .s008 form .inner-form .advance-search {
   background: rgba(0, 0, 0, 0.83);
   padding: 40px;
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
 }
 
