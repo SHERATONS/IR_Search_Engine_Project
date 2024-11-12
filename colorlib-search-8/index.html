@@ -5,14 +5,16 @@
     <link href="css/main.css" rel="stylesheet" />
     <title>SEARCH ENGINE</title>
   </head>
+
   <body>
     <div class="s008">
       <form>
         <div class="inner-form">
           <div class="basic-search">  
             <div class="input-field">
-              <input id="search" type="text" placeholder="Search song, albums, artists, genre" />
+              <input id="search" type="text" placeholder="Search titles, albums, artists, genres, and songwriters" />
               <div class="icon-wrap"> 
+                <!-- <button type="submit">Search</button> -->
               </div>
             </div>
           </div>
@@ -34,14 +36,12 @@
                   </select>
                 </div>
               </div>
-
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </form>
     </div>
+
     <script src="js/extention/choices.js"></script>
     <script>
       const customSelects = document.querySelectorAll("select");
@@ -80,6 +80,19 @@
         }
       });
 
+      function handleKeyPress(event) { 
+        if (event.key === 'Enter') { 
+          event.preventDefault(); 
+          window.location.href = 'Result.html'; 
+        }
+      }
+
+      document.getElementById("search").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Prevent form submission
+          window.location.href = "Result.html"; // Redirect to Result.html
+        }
+      });
     </script>
   </body>
 </html>
