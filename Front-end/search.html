@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <title>SEARCH ENGINE</title>
+  </head>
+
+  <body>
+    <div class="s008">
+      <form>
+        <div class="inner-form">
+          <div class="basic-search">  
+            <div class="input-field">
+              <input id="search" type="text" placeholder="Search titles, albums, artists, genres, and songwriters" />
+              <div class="icon-wrap"> 
+                <!-- <button type="submit">Search</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const customSelects = document.querySelectorAll("select");
+      const deleteBtn = document.getElementById('delete')
+      const choices = new Choices('select',
+      {
+        searchEnabled: false,
+        removeItemButton: true,
+        itemSelectText: '',
+      });
+      for (let i = 0; i < customSelects.length; i++)
+      {
+        customSelects[i].addEventListener('addItem', function(event)
+        {
+          if (event.detail.value)
+          {
+            let parent = this.parentNode.parentNode
+            parent.classList.add('valid')
+            parent.classList.remove('invalid')
+          }
+          else
+          {
+            let parent = this.parentNode.parentNode
+            parent.classList.add('invalid')
+            parent.classList.remove('valid')
+          }
+        }, false);
+      }
+      deleteBtn.addEventListener("click", function(e)
+      {
+        e.preventDefault()
+        const deleteAll = document.querySelectorAll('.choices__button')
+        for (let i = 0; i < deleteAll.length; i++)
+        {
+          deleteAll[i].click();
+        }
+      });
+
+      function handleKeyPress(event) { 
+        if (event.key === 'Enter') { 
+          event.preventDefault(); 
+          window.location.href = 'Result.html'; 
+        }
+      }
+
+      document.getElementById("search").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Prevent form submission
+          window.location.href = "Result.html"; // Redirect to Result.html
+        }
+      });
+    </script>
+  </body>
+</html>
