@@ -8,5 +8,5 @@ ELASTIC_PASSWORD = "td-302HyXw2HxZrJHBib"
 es = Elasticsearch("https://localhost:9200", http_auth=("elastic", ELASTIC_PASSWORD), verify_certs=False)
 
 @app.route('/')
-def ovr():
-    return render_template('ovr.html')
+def index():
+    return render_template('index.html')

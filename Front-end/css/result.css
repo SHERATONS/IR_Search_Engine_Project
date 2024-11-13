@@ -20,7 +20,7 @@ body {
     margin-bottom: 20px;
 }
 .logo {
-    background: url("../images/Spotify_logo.png") no-repeat;
+    background: url("images/Spotify_logo.png") no-repeat;
     background-size: contain; 
     width: 120px; 
     height: 40px; 

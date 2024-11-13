@@ -8,7 +8,6 @@ body{
     padding: 0;
 }
 .container{
-    height: 100%;
     margin-left: 75px;
     margin-right: 75px;
     background-color: rgba(45, 45, 45, 0.473);

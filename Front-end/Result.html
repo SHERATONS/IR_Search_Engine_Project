@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="css/result.css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='result.css') }}" rel="stylesheet">
         <title>Search result</title>
     </head>
 
@@ -20,16 +20,18 @@
                 <div class="info">
                     <!-- Music info -->
                     <h1>
-                    {{song.Name}}
+                    {{Name}}
                     </h1>
                     <!-- ARTIST Name here -->
-                    <p>Artist: {{song.Artist}}</p> 
+                    <p>Artist: {{Artist}}</p> 
                     <!-- Date here -->
-                    <p>Release Date: {{song.Release_Date}}</p>
+                    <p>Release Date: {{Release_Date}}</p>
+                    <p>Songwriter: {{Songwriter}}</p>
+                    <p>Producer: {{Producer}}</p>
                     <div>
                         <div class="Genre">
                             <p class="Genretype">
-                                <!-- TYPE OF GENRE -->{{song.Genre}}
+                                <!-- TYPE OF GENRE -->{{Genre}}
                             </p> 
                         </div>   
                     </div>
@@ -39,7 +41,7 @@
             <div class="description">
                 <div class="section-title">Description:</div>
                 <p>
-                    <!-- description here -->{{song.Description}}
+                    <!-- description here -->{{Description}}
                 </p>
                 <div class="section"></div>
             </div>
@@ -47,7 +49,7 @@
             <div class="lyrics">
                 <div class="section-title">Lyrics:</div>
                 <p> 
-                    <!-- Lyrics here -->{{song.Lyrics}}
+                    <!-- Lyrics here -->{{Lyrics}}
                 </p>
             </div>
         </div>
