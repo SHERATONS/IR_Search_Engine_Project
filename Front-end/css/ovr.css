@@ -48,8 +48,8 @@ body{
     margin: 0 auto;
     margin-bottom: 60px;
 }
-.line.text{
-    margin-top: 10px;
+.line .text{
+    padding-top: 10px;
     color: #ffffff;
 
 }
