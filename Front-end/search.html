@@ -8,13 +8,13 @@
 
   <body>
     <div class="s008">
-      <form>
+      <form method="GET" action="{{ url_for('search') }}">
         <div class="inner-form">
           <div class="basic-search">  
             <div class="icon-wrap"></div>
             <div class="input-field">
               <span class="search-icon"></span> <!-- Search icon element -->
-              <input id="search" type="text" placeholder="What do you want to play?" />
+              <input id="search" type="text" name="keyword" placeholder="What do you want to play?" />
             </div>
           </div>
         </div>
