@@ -9,7 +9,7 @@ es = Elasticsearch("https://localhost:9200", http_auth=("elastic", ELASTIC_PASSW
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('search.html')
 
 @app.route('/search')
 def search():
@@ -32,12 +32,12 @@ def search():
     }
     
     res = es.search(index='song_data', body=body)
-    hits = [{'Name': doc['__source']['Name'], 'Description': doc['__source']['Description'], 
-             'Genre': doc['__source']['Genre'], 'Artist': doc['__source']['Artist'],
-             'Lyrics': doc['__source']['Lyrics'], 'Producer': doc['__source']['Producer'],
-             'Songwriter': doc['__source']['Songwriter'], 'Release Date': doc['__source']['Release Date']} for doc in res['hits']['hits']]
+    hits = [{'Name': doc['_source']['Name'], 'Description': doc['_source']['Description'], 
+             'Genre': doc['_source']['Genre'], 'Artist': doc['_source']['Artist'],
+             'Lyrics': doc['_source']['Lyrics'], 'Producer': doc['_source']['Producer'],
+             'Songwriter': doc['_source']['Songwriter'], 'Release Date': doc['_source']['Release Date']} for doc in res['hits']['hits']]
     page_total = math.ceil(res['hits']['total']['value']/page_size)
-    return render_template('search.html', keyword=keyword, hits=hits, page_no=page_no, page_total=page_total)
+    return render_template('index.html', keyword=keyword, hits=hits, page_no=page_no, page_total=page_total)
 
 @app.route('/song/<song_id>')
 def song_page(song_id):

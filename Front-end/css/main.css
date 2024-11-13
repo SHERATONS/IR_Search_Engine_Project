@@ -488,7 +488,7 @@ legend {
   transform: translateY(-50%);
   width:32px;
   height: 40px;
-  background-image: url('/Front-end/css/images/search2.png');
+  background-image: url('images/search2.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -502,7 +502,7 @@ legend {
   transform: translate(-50%, -20%);
   width: 686px;
   height: 150px;
-  background-image: url('/Front-end/css/images/Spotify_logo.png');
+  background-image: url('images/Spotify_logo.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
