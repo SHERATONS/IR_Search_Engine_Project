@@ -47,6 +47,11 @@ body {
     border-radius: 150px;
     background-position: center;
     background-size: contain;
+    display: flex;
+    overflow: hidden;
+}
+.fitin {
+    object-fit: cover;
 }
 .info {
     flex-grow: 1;
