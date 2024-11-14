@@ -44,19 +44,51 @@ body {
     width: 300px;
     height: 300px;
     background-color: #333;
-    border-radius: 10px;
+    border-radius: 150px;
+    background-position: center;
+    background-size: contain;
 }
 .info {
     flex-grow: 1;
 }
-.info h1 {
-    font-size: 24px;
+.info .row {
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-start; 
+    gap: 15px; 
+}
+.info h1.name {
+    font-size: 32px;
+    margin: 0;
+    flex-grow: 1; 
+}
+.info .top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.info h1.top {
+    font-size: 32px;
     margin: 0;
 }
-.info p {
+.info .streams {
     font-size: 14px;
-    color: #b3b3b3;
-    margin: 5px 0;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0;
+    
+}
+.info p.Art {
+    font-size: 18px;
+    font-weight: 450;
+    color: #ffffff;
+    margin-top: 0px;
+    margin-bottom: 5px 0;
+}
+.info p.Date {
+    font-size: 10px;
+    color: #ffffff;
+    margin-top: 5px ;
 }
 .info .Genre {
     width: flex;
@@ -89,13 +121,15 @@ body {
     border-bottom: 1px solid #eeeeee;
 }
 .section-title {
+    display: inline-block;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 0;
+    border-bottom: 1px solid #ffffff;
 }
 .description p, .lyrics p {
     font-size: 14px;
     line-height: 1.6;
-    color: #b3b3b3;
+    color: #ffffff;
 }

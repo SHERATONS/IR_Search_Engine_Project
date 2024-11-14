@@ -1,16 +1,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="{{ url_for('static', filename='result.css') }}" rel="stylesheet">
+        <link href="css/result.css" rel="stylesheet">
         <title>Search result</title>
     </head>
-
+<!-- #{{ url_for('static', filename='result.css') }} -->
 
     <body>
 
         <div class="container">
             <div class="header">
-                <div class="logo"></div>
+                <a href="/Front-end/search.html" class="logo"></a>
                     <input class="searchbox">
                         <!-- Search -->
             </div>
@@ -19,13 +19,19 @@
                 <div class="album-art"></div>
                 <div class="info">
                     <!-- Music info -->
-                    <h1>
-                    {{Name}}
-                    </h1>
+                    <div class="row">
+                        <h1 class="name">{{Name}}</h1>
+                        <div class="top-section">
+                        <h1 class="top">TOP {{Rank}}</h1> 
+                        <p class="streams">Streams: {{Streams}}</p>   
+                        </div>
+                        
+                    </div>
+
                     <!-- ARTIST Name here -->
-                    <p>Artist: {{Artist}}</p> 
+                    <p class="Art">Artist: {{Artist}}</p> 
                     <!-- Date here -->
-                    <p>Release Date: {{Release_Date}}</p>
+                    <p class="Date">Release Date: {{Release_Date}}</p>
                     
                     <div>
                         <div class="Genre">
