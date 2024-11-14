@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from elasticsearch import Elasticsearch
-from markupsafe import escape
+from markupsafe import escape, Markup
 import math
 
 app = Flask(__name__, template_folder="../Front-end", static_folder="../Front-end/css")
@@ -35,7 +35,8 @@ def search():
     hits = [{'Name': doc['_source']['Name'], 'Description': doc['_source']['Description'], 
              'Genre': doc['_source']['Genre'], 'Artist': doc['_source']['Artist'],
              'Lyrics': doc['_source']['Lyrics'], 'Producer': doc['_source']['Producer'],
-             'Songwriter': doc['_source']['Songwriter'], 'Release Date': doc['_source']['Release Date']} for doc in res['hits']['hits']]
+             'Songwriter': doc['_source']['Songwriter'], 'Release Date': doc['_source']['Release Date'],
+             'Song Image Link': doc['_source']['Song Image Link']} for doc in res['hits']['hits']]
     page_total = math.ceil(res['hits']['total']['value']/page_size)
     total_song = res['hits']['total']['value']
     return render_template('index.html', keyword=keyword, hits=hits, page_no=page_no, page_total=page_total, page_size=page_size, total_song=total_song)
@@ -61,7 +62,12 @@ def song_page(song_name):
                            Description=song_data.get("Description", ""),
                            Lyrics=song_data.get("Lyrics", ""),
                            Position=song_data.get("Position in chart", ""),
-                           Stream=song_data.get("Streams", ""))
+                           Stream=song_data.get("Streams", ""),
+                           Link=song_data.get("Song Image Link", ""))
+
+@app.template_filter('newline')
+def newline(value):
+    return Markup(value.replace("\n", "<br>"))
 
 if __name__ == '__main__':
     app.run(debug=True)

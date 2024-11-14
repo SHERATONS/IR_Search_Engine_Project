@@ -21,7 +21,7 @@
                 <div class="row">
                     {% for doc in hits %}
                         <div class="card">
-                            <a href="/song/{{doc['Name']}}" class = "Albumcover"><!--AlbumPicture--></a>
+                            <a href="/song/{{doc['Name']}}" class = "Albumcover"><!--AlbumPicture--><img src=" {{ doc['Song Image Link']}}"></a>
                             <p class="songN"><!-- Song -->{{ doc['Name'] }}</p>
                             <p class="ArtN"><!-- ArtistName -->{{ doc['Artist'] }}</p>
                         </div>
