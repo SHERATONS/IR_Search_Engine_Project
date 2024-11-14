@@ -10,8 +10,9 @@ body {
 .container {
     width: 90%;
     /* max-width: 800px; */
-    padding: 20px;
+    padding: 30px;
     background-color: #1e1e1e;
+    height: fit-content;
 }
 .header {
     display: flex;
@@ -41,16 +42,18 @@ body {
     margin-bottom: 20px;
 }
 .album-art {
+    display: flex;
     width: 300px;
     height: 300px;
     background-color: #333;
     border-radius: 150px;
     background-position: center;
     background-size: contain;
-    display: flex;
     overflow: hidden;
 }
-.fitin {
+.fitin{
+    height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 .info {
@@ -63,7 +66,7 @@ body {
     gap: 15px; 
 }
 .info h1.name {
-    font-size: 32px;
+    font-size: 28px;
     margin: 0;
     flex-grow: 1; 
 }
@@ -73,13 +76,15 @@ body {
     align-items: flex-start;
 }
 .info h1.top {
-    font-size: 32px;
+    font-size: 26px;
+    font-weight: 800;
     margin: 0;
+    font-family: serif;
 }
 .info .streams {
-    font-size: 14px;
+    font-size: 10px;
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 600;
     margin: 0;
     
 }
@@ -91,36 +96,37 @@ body {
     margin-bottom: 5px 0;
 }
 .info p.Date {
-    font-size: 10px;
+    font-size: 12px;
     color: #ffffff;
     margin-top: 5px ;
 }
 .info .Genre {
     width: flex;
+    min-width: 60px;
     height: 45px;
     background-color: #1ED760;
-    border-radius: 15px;
+    border-radius: 20px;
     display: inline-block;
     margin-top: 10px;
 }
 .info .Genretype{
+    width: flex;
     align-items: center;
     text-align: center;
     align-content: center;
     margin-top: 2.5px;
     margin-left: 2.5px;
     margin-right: 2.5px;
-    padding-left: 1px;
-    padding-right: 1px;
-    width: flex;
+    padding-left: 15px;
+    padding-right: 15px;
     height: 40px;
     background-color: #1E1E1E;
-    border-radius: 15px;
+    border-radius: 20px;
     font-size:12px;
     color: #ffffff;
 }
 .description, .lyrics {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .section {
     border-bottom: 1px solid #eeeeee;
@@ -129,12 +135,20 @@ body {
     display: inline-block;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
-    padding-bottom: 0;
+}
+.underline{
     border-bottom: 1px solid #ffffff;
 }
+.section-title .lyrics{
+    margin-top: 25px;
+}
 .description p, .lyrics p {
-    font-size: 14px;
+    margin-top: 1px;
+    font-size: 16px;
     line-height: 1.6;
     color: #ffffff;
+    max-width: 45%; /* optional, to control the width of the paragraph */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-line;
 }

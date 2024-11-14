@@ -8,7 +8,7 @@ body{
     padding: 0;
 }
 .container{
-    height: flex;
+    height: fit-content;
     display: block;
     margin-left: 75px;
     margin-right: 75px;
@@ -72,20 +72,20 @@ body{
     color: #ffffff;
     margin-bottom: 20px;
 }
-.displaybox{
-    width: 200px;
-    height: 275px;
-}
 .Albumcover{
-    display: block;
+    display: flex;
     width: 200px;
     height: 200px;
-    background: url("") no-repeat;
-    background-size: cover;
+    overflow: hidden;
     background-position: center;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 30px;
     justify-content: space-between;
+}
+.fitin{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 .songN{
     text-align: center;

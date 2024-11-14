@@ -21,40 +21,40 @@
                 <div class="row">
                     {% for doc in hits %}
                         <div class="card">
-                            <a href="/song/{{doc['Name']}}" class = "Albumcover"><!--AlbumPicture--><img src=" {{ doc['Song Image Link']}}"></a>
+                            <a href="/song/{{doc['Name']}}" class = "Albumcover"><!--AlbumPicture--><img class="fitin" src=" {{ doc['Song Image Link']}}"></a>
                             <p class="songN"><!-- Song -->{{ doc['Name'] }}</p>
                             <p class="ArtN"><!-- ArtistName -->{{ doc['Artist'] }}</p>
                         </div>
                 {% endfor %} 
                 </div>
                 
-                    <div class="Pages">
-                        <nav aria-label="Page navigation">
-                            <ul class="pageN">
-                                {% if page_no!=1 %}
-                                <p class="page-item"><a href="?keyword={{ keyword }}&page=1">First</a></p>
-                                <p class="page-item">
-                                    <a href="?keyword={{ keyword }}&page={{ page_no-1 }}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </p>
-                                <p class="page-item"><a href="?keyword={{ keyword }}&page={{ page_no-1 }}">{{ page_no-1 }}</a></p> 
-                                {% endif %}
-                                {% if page_total!=1 %}
-                                <p class="page-item active"><a class="page-pnk " href="#">{{ page_no }}</a></p>
-                                {% endif %}
-                                {% if page_no<page_total %}
-                                <p class="page-item"><a href="?keyword={{ keyword }}&page={{ page_no+1 }}">{{ page_no+1 }}</a></p>
-                                <p class="page-item">
-                                    <a href="?keyword={{ keyword }}&page={{ page_no+1 }}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </p>
-                                <p class="page-item"><a href="?keyword={{ keyword }}&page={{ page_total }}">Last</a></p>
-                                {% endif %}
-                            </ul>
-                        </nav>    
-                    </div>
+                <div class="Pages">
+                    <nav aria-label="Page navigation">
+                        <ul class="pageN">
+                            {% if page_no!=1 %}
+                            <p class="page-item"><a href="?keyword={{ keyword }}&page=1">First</a></p>
+                            <p class="page-item">
+                                <a href="?keyword={{ keyword }}&page={{ page_no-1 }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </p>
+                            <p class="page-item"><a href="?keyword={{ keyword }}&page={{ page_no-1 }}">{{ page_no-1 }}</a></p> 
+                            {% endif %}
+                            {% if page_total!=1 %}
+                            <p class="page-item active"><a class="page-pnk " href="#">{{ page_no }}</a></p>
+                            {% endif %}
+                            {% if page_no<page_total %}
+                            <p class="page-item"><a href="?keyword={{ keyword }}&page={{ page_no+1 }}">{{ page_no+1 }}</a></p>
+                            <p class="page-item">
+                                <a href="?keyword={{ keyword }}&page={{ page_no+1 }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </p>
+                            <p class="page-item"><a href="?keyword={{ keyword }}&page={{ page_total }}">Last</a></p>
+                            {% endif %}
+                        </ul>
+                    </nav>    
+                </div>
             </div>
         </div>
     </body>
