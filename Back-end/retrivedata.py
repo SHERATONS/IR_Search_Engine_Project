@@ -37,12 +37,20 @@ def search():
              'Lyrics': doc['_source']['Lyrics'], 'Producer': doc['_source']['Producer'],
              'Songwriter': doc['_source']['Songwriter'], 'Release Date': doc['_source']['Release Date']} for doc in res['hits']['hits']]
     page_total = math.ceil(res['hits']['total']['value']/page_size)
-    return render_template('index.html', keyword=keyword, hits=hits, page_no=page_no, page_total=page_total)
+    total_song = res['hits']['total']['value']
+    return render_template('index.html', keyword=keyword, hits=hits, page_no=page_no, page_total=page_total, page_size=page_size, total_song=total_song)
 
-@app.route('/song/<song_id>')
-def song_page(song_id):
-    response = es.get(index='song_data', id=song_id)
-    song_data = response["_source"]
+@app.route('/song/<song_name>')
+def song_page(song_name):
+    body = {
+        'query' : {
+            'match' : {
+                'Name' : song_name
+            }
+        }
+    }
+    response = es.search(index='song_data', body=body)
+    song_data = response['hits']['hits'][0]["_source"]
     return render_template("Result.html", 
                            Name=song_data.get("Name", ""),
                            Artist=song_data.get("Artist", ""),

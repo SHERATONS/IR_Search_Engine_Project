@@ -1,6 +1,6 @@
 <html >
     <head>
-        <link href="css/ovr.css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='index.css') }}" rel="stylesheet">
             <Title>Search Overall</Title>    
     </head>
     <body>
@@ -8,18 +8,20 @@
 
         <div class="container">
             <div class="header">
-                    <a href="/Front-end/search.html" class="logo"></a>
-                    <input class="searchbox" type="text"><!-- input new Search -->                                   
-            </div> <div class="insearch"><!-- Search input result --><p>Search OVR</p></div> 
+                    <a href="/" class="logo"></a>
+                    <form method="GET" action="{{ url_for('search') }}">
+                        <input class="searchbox" type="text" name="keyword"><!-- input new Search -->
+                    </form>                                   
+            </div> <div class="insearch"><!-- Search input result -->{{ keyword}}</div> 
             
-                <div class="line"><p class="text">Total result:</p></div>
+                <div class="line"><p class="text">Total result: {{ total_song }}</p></div>
             
 
             <div class="SearchOVR">
                 <div class="row">
                     {% for doc in hits %}
                         <div class="card">
-                            <a href="/Front-end/Result.html" class = "Albumcover"><!--AlbumPicture--></a>
+                            <a href="/song/{{doc['Name']}}" class = "Albumcover"><!--AlbumPicture--></a>
                             <p class="songN"><!-- Song -->{{ doc['Name'] }}</p>
                             <p class="ArtN"><!-- ArtistName -->{{ doc['Artist'] }}</p>
                         </div>
