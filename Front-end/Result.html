@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="css/result.css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='result.css') }}" rel="stylesheet">
         <title>Search result</title>
     </head>
 <!-- #{{ url_for('static', filename='result.css') }} -->
@@ -10,9 +10,10 @@
 
         <div class="container">
             <div class="header">
-                <a href="/Front-end/search.html" class="logo"></a>
-                    <input class="searchbox">
-                        <!-- Search -->
+                <a href="/" class="logo"></a>
+                <form method="GET" action="{{ url_for('search') }}">
+                    <input class="searchbox" type="text" name="keyword">
+                        <!-- Search --></form>
             </div>
         
             <div class="content">
@@ -22,8 +23,8 @@
                     <div class="row">
                         <h1 class="name">{{Name}}</h1>
                         <div class="top-section">
-                        <h1 class="top">TOP {{Rank}}</h1> 
-                        <p class="streams">Streams: {{Streams}}</p>   
+                        <h1 class="top">TOP {{Position}}</h1> 
+                        <p class="streams">Streams: {{Stream}}</p>   
                         </div>
                         
                     </div>
