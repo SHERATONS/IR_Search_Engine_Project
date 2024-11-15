@@ -19,17 +19,27 @@ def search():
         page_no = int(request.args.get('page'))
     else:
         page_no = 1
-        
-    body = {
-        'size' : page_size,
-        'from' : page_size * (page_no-1),
-        'query' : {
-            'multi_match': {
-                'query' : keyword,
-                'fields' : ['Name', 'Description', 'Genre', 'Artist', 'Lyrics', 'Producer', 'Songwriter', 'Release Date']
+    
+    if keyword:
+        body = {
+            'size' : page_size,
+            'from' : page_size * (page_no-1),
+            'query' : {
+                'multi_match': {
+                    'query' : keyword,
+                    'fields' : ['Name', 'Description', 'Genre', 'Artist', 'Lyrics', 'Producer', 'Songwriter', 'Release Date']
+                }
             }
         }
-    }
+    else:
+        body = {
+            'size' : page_size,
+            'from' : page_size * (page_no-1),
+            'query' : {
+                'match_all' : {}
+            }
+        }  
+    
     
     res = es.search(index='song_data', body=body)
     hits = [{'Name': doc['_source']['Name'], 'Description': doc['_source']['Description'], 
