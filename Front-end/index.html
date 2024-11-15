@@ -27,7 +27,7 @@
                         </div>
                 {% endfor %} 
                 </div>
-                
+                {% if page_total > 1 %}
                 <div class="Pages">
                     <nav aria-label="Page navigation">
                         <ul class="pageN">
@@ -55,6 +55,7 @@
                         </ul>
                     </nav>    
                 </div>
+                {% endif %}
             </div>
         </div>
     </body>
