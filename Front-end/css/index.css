@@ -9,10 +9,11 @@ body{
 }
 .container{
     height: fit-content;
+    min-height: 100%;
     display: block;
     margin-left: 75px;
     margin-right: 75px;
-    background-color: #64faa042;
+    background-color: #1b1b1ba8;
     padding: 20px;
 }
 .header {
