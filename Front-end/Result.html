@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="/Front-end/css/result.css" rel="stylesheet">
+        <link href="{{ url_for('static', filename='result.css') }}" rel="stylesheet">
         <title>Search result</title>
     </head>
 <!-- #{{ url_for('static', filename='result.css') }} -->
@@ -19,7 +19,7 @@
             <div class="content">
                 <div class="album-art">
                     <!-- MUSIC LINK HERE -->
-                    <a href="">
+                    <a href="{{Song}}">
                         <img class="fitin" src={{Link}}>
                         <div class="playbt"></div>
                     </a>
