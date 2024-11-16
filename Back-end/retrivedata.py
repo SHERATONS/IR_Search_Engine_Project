@@ -24,10 +24,43 @@ def search():
         body = {
             'size' : page_size,
             'from' : page_size * (page_no-1),
-            'query' : {
-                'multi_match': {
-                    'query' : keyword,
-                    'fields' : ['Name', 'Description', 'Genre', 'Artist', 'Lyrics', 'Producer', 'Songwriter', 'Release Date']
+            "query": {
+                "function_score": {
+                    "query": {
+                        "bool": {
+                            "should": [
+                                {
+                                    "match_phrase_prefix": {
+                                        "Name": keyword
+                                    }
+                                },
+                                {
+                                    "multi_match": {
+                                        "query": keyword,
+                                        "fields": ["Name", "Description", "Genre", "Artist", "Lyrics", "Producer", "Songwriter", "Release Date"],
+                                        "fuzziness": "AUTO"
+                                    }
+                                },
+                                {
+                                    "match": {
+                                        "Genre": {
+                                            "query": keyword,
+                                            "boost": 2
+                                        }
+                                    }
+                                }
+                            ],
+                            "minimum_should_match" : 1,
+                            "boost" : 2.0
+                        }
+                    },
+                    "functions": [
+                        {
+                            "filter": { "exists": { "field": "Name" } },
+                            "weight": 3
+                        }
+                    ],
+                    "score_mode": "sum"
                 }
             }
         }
@@ -46,7 +79,7 @@ def search():
              'Genre': doc['_source']['Genre'], 'Artist': doc['_source']['Artist'],
              'Lyrics': doc['_source']['Lyrics'], 'Producer': doc['_source']['Producer'],
              'Songwriter': doc['_source']['Songwriter'], 'Release Date': doc['_source']['Release Date'],
-             'Song Image Link': doc['_source']['Song Image Link']} for doc in res['hits']['hits']]
+             'Song Image Link': doc['_source']['Song Image Link'], 'Spotify Link': doc['_source']['Spotify Link']} for doc in res['hits']['hits']]
     page_total = math.ceil(res['hits']['total']['value']/page_size)
     total_song = res['hits']['total']['value']
     return render_template('index.html', keyword=keyword, hits=hits, page_no=page_no, page_total=page_total, page_size=page_size, total_song=total_song)
@@ -73,7 +106,8 @@ def song_page(song_name):
                            Lyrics=song_data.get("Lyrics", ""),
                            Position=song_data.get("Position in chart", ""),
                            Stream=song_data.get("Streams", ""),
-                           Link=song_data.get("Song Image Link", ""))
+                           Link=song_data.get("Song Image Link", ""),
+                           Song=song_data.get("Spotify Link", ""))
 
 @app.template_filter('newline')
 def newline(value):
